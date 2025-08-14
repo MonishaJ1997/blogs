@@ -11,11 +11,10 @@ app.secret_key = "your_secret_key"  # Needed for flash messages
 import os
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
+app.config["SECRET_KEY"] = "secret123"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blog.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# Use DATABASE_URL from environment if available, else fallback to SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite:///blog.db")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
@@ -77,3 +76,4 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
