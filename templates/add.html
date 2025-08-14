@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Post</title>
+</head>
+<body>
+    <h1>Add New Post</h1>
+    <form method="POST">
+        <p>Title: <input type="text" name="title"></p>
+        <p>Content: <textarea name="content"></textarea></p>
+        <p>Author: <input type="text" name="author"></p>
+        <button type="submit">Add Post</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
